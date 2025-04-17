@@ -9,6 +9,7 @@ import footnote from 'markdown-it-footnote'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItToc from 'markdown-it-toc-done-right'
 import markdownDeflist from 'markdown-it-deflist'
+import markdownGitHubAlerts from 'markdown-it-github-alerts'
 
 import mk from './katex'
 import chart from './chart'
@@ -211,6 +212,7 @@ export default class PreviewPage extends React.Component {
           ...DEFAULT_OPTIONS.uml,
           ...uml
         })
+        .use(markdownGitHubAlerts)
         .use(emoji)
         .use(taskLists)
         .use(markdownDeflist)
@@ -334,6 +336,7 @@ export default class PreviewPage extends React.Component {
           <link rel="shortcut icon" type="image/ico" href="/_static/favicon.ico" />
           <link rel="stylesheet" href="/_static/page.css" />
           <link rel="stylesheet" href="/_static/markdown.css" />
+          <link rel="stylesheet" href="/_static/github-alerts.css" />
           <link rel="stylesheet" href="/_static/highlight.css" />
           <link rel="stylesheet" href="/_static/katex@0.15.3.css" />
           <link rel="stylesheet" href="/_static/sequence-diagram-min.css" />
