@@ -99,9 +99,13 @@ export default class PreviewPage extends React.Component {
   }
 
   handleThemeChange() {
-    this.setState((state) => ({
-      theme: state.theme === 'light' ? 'dark' : 'light',
-    }))
+    this.setState((state) => {
+      const newTheme = state.theme === 'light' ? 'dark' : 'light';
+      // Sync with <html> and <body>
+      document.documentElement.setAttribute('data-theme', newTheme);
+      document.body.setAttribute('data-theme', newTheme); // Optional if using CSS inheritance
+      return { theme: newTheme };
+    });
   }
 
   showThemeButton() {
